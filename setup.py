@@ -9,14 +9,6 @@ setup(
   author_email = 'harunspeedy1995@gmail.com',
   url = 'https://github.com/harunshimanto/autodatapreprocessing',
   download_url = 'https://github.com/harunshimanto/autodatapreprocessing/archive/v_01.tar.gz',
-  install_requires=[            # I get to this in a second
-          'numpy',
-          'pandas',
-          'IPython',
-      ],
-  Meta =[
-  "Maintainer :: Quantum.ai Community",
-  ],
   classifiers=[
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
