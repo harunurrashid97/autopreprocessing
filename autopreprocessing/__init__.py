@@ -4,7 +4,7 @@ from IPython.display import display
 from pandas import read_csv, get_dummies, Series
 from numpy import nan, zeros
 
-def display():
+def display(df):
     """Set max rows and columns to display"""
     with pd.option_context("display.max_rows",1000):
         with pd.option_context("display.max_columns",1000):
@@ -24,12 +24,17 @@ def load_csv(filePath, missing_headers=False):
 
     return data
 
-def missing_value_fill():
+def replace_missing_data(data):
     """replace missing data values and return as pandas data frame."""
+
     # strip whitespace from data
     data = data.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
+
     # replace missing values with the sentinel NaN value
     data = data.replace('?', nan)
+
+    data = data.replace('nan', 0)
+
     # get missing field count
     nan_vals = dict(data.count(axis=1))
     nan_vals = {key: value for (key, value) in nan_vals.items() if value < cols-2}
