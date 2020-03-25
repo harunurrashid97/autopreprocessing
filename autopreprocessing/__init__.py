@@ -107,9 +107,9 @@ def proc_category(df,cat_cols=[],cat_dict={},max_cardi=None):
     """Process categorical variables """
     d = df.copy()
     
-    d, cat_cols = convert_cat(d,cat_cols)
+    d, cat_cols = convert_category(d,cat_cols)
 
-    cat_dict = set_cat(d,cat_dict)
+    cat_dict = set_catagory(d,cat_dict)
     
     if max_cardi:
         d,cardi_cols = gen_dummies(d,cat_cols,max_cardi)
