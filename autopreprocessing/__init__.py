@@ -77,7 +77,7 @@ def convert_category(df,cat_cols=[]):
 
 
 
-def set_catagory(df,cat_dict={}):
+def  set_category(df,cat_dict={}):
     if cat_dict:
         for k,v in cat_dict.items():
             df[k] = df[k].cat.set_categories(v)
@@ -109,13 +109,13 @@ def proc_category(df,cat_cols=[],cat_dict={},max_cardi=None):
     
     d, cat_cols = convert_category(d,cat_cols)
 
-    cat_dict = set_catagory(d,cat_dict)
+    cat_dict = set_category(d,cat_dict)
     
     if max_cardi:
-        d,cardi_cols = gen_dummies(d,cat_cols,max_cardi)
+        d,cardi_cols = generate_dummies(d,cat_cols,max_cardi)
         cat_cols = list(set(cat_cols) - set(cardi_cols))
     
-    cat_codes(d,cat_cols)
+    category_codes(d,cat_cols)
     
     return d, cat_dict
 
